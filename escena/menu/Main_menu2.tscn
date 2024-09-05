@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://escena/menu/Main_menu2.gd" id="1_d3hok"]
 [ext_resource type="Texture2D" uid="uid://x8u4wpf703t1" path="res://escena/menu/Fondo de menu.png" id="2_cddyv"]
-[ext_resource type="Texture2D" uid="uid://cnu678ul11gg8" path="res://assets/menu/rana loca.png" id="3_ua7ye"]
+[ext_resource type="Texture2D" uid="uid://cnu678ul11gg8" path="res://rana loca.png" id="3_ua7ye"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6t45g"]
 texture = ExtResource("2_cddyv")

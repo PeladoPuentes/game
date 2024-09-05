@@ -1,7 +1,7 @@
 [gd_scene load_steps=22 format=3 uid="uid://bwptm8vccl162"]
 
 [ext_resource type="Script" path="res://escena/collectible.gd" id="1_2r4cr"]
-[ext_resource type="Texture2D" uid="uid://d4km182ysshgs" path="res://assets/game_elements/Pineapple.png" id="2_wr5w7"]
+[ext_resource type="Texture2D" uid="uid://d4km182ysshgs" path="res://Pineapple.png" id="2_wr5w7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3dhmi"]
 atlas = ExtResource("2_wr5w7")

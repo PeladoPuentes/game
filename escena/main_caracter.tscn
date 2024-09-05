@@ -1,8 +1,8 @@
 [gd_scene load_steps=30 format=3 uid="uid://7jeppj8u1kkq"]
 
 [ext_resource type="Script" path="res://escena/main_caracter.gd" id="1_vuwtb"]
-[ext_resource type="Texture2D" uid="uid://bynjtr7vmy1dr" path="res://assets/character/Jump (32x32).png" id="2_x26p6"]
-[ext_resource type="Texture2D" uid="uid://bc5k3l431p7q6" path="res://assets/character/Run (32x32).png" id="3_xlrtd"]
+[ext_resource type="Texture2D" uid="uid://bynjtr7vmy1dr" path="res://Jump (32x32).png" id="2_x26p6"]
+[ext_resource type="Texture2D" uid="uid://bc5k3l431p7q6" path="res://Run (32x32).png" id="3_xlrtd"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_3iaxc"]
 load_path = "res://.godot/imported/Idle (32x32).png-eab6f8bc6cc3e2ad30a389b322c823ee.ctex"
