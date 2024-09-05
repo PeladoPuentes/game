@@ -1,12 +1,12 @@
 [gd_scene load_steps=17 format=3 uid="uid://drpq57rnvm6o3"]
 
 [ext_resource type="Script" path="res://assets/game_elements/Game_manager.gd" id="1_q82hn"]
-[ext_resource type="Texture2D" uid="uid://3inxvbaftchx" path="res://escena/levels/Green.png" id="2_x0hyh"]
-[ext_resource type="Texture2D" uid="uid://c1sog416mt0rt" path="res://assets/terrain/Terrain (16x16).png" id="3_bms4r"]
+[ext_resource type="Texture2D" uid="uid://3inxvbaftchx" path="res://Green.png" id="2_x0hyh"]
+[ext_resource type="Texture2D" uid="uid://c1sog416mt0rt" path="res://Terrain (16x16).png" id="3_bms4r"]
 [ext_resource type="PackedScene" uid="uid://7jeppj8u1kkq" path="res://escena/main_caracter.tscn" id="4_v2m43"]
 [ext_resource type="PackedScene" uid="uid://bwptm8vccl162" path="res://escena/collectible.tscn" id="5_fj0ga"]
 [ext_resource type="PackedScene" uid="uid://cpcp51qmipgj6" path="res://escena/checkpoint.tscn" id="6_pa0mi"]
-[ext_resource type="PackedScene" uid="uid://do24gut18v5iq" path="res://escena/levels/Level2.tscn" id="7_pk7ci"]
+[ext_resource type="PackedScene" uid="uid://do24gut18v5iq" path="res://escena/Level2.tscn" id="7_pk7ci"]
 [ext_resource type="PackedScene" uid="uid://bwg6ny7e2i6v7" path="res://escena/enemy.tscn" id="8_4ngti"]
 [ext_resource type="Script" path="res://escena/fall_area.gd" id="9_yrinb"]
 [ext_resource type="Texture2D" uid="uid://bxou1pwcxmt6o" path="res://assets/game_elements/hearts.png" id="10_8skjo"]
@@ -494,9 +494,10 @@ corner_radius_bottom_left = 12
 
 [node name="Node" type="Node"]
 
-[node name="GameManager" type="Node" parent="."]
+[node name="GameManager" type="Node" parent="." node_paths=PackedStringArray("hearts")]
 unique_name_in_owner = true
 script = ExtResource("1_q82hn")
+hearts = [NodePath("../ui/Hearts/HBoxContainer/Heart"), NodePath("../ui/Hearts/HBoxContainer/Heart2"), NodePath("../ui/Hearts/HBoxContainer/Heart3")]
 
 [node name="scene objets" type="Node" parent="."]
 
@@ -565,7 +566,7 @@ target_level = ExtResource("7_pk7ci")
 [node name="Enemies" type="Node" parent="scene objets"]
 
 [node name="Enemy" parent="scene objets/Enemies" instance=ExtResource("8_4ngti")]
-position = Vector2(543, 578)
+position = Vector2(628, 113)
 
 [node name="Enemy2" parent="scene objets/Enemies" instance=ExtResource("8_4ngti")]
 position = Vector2(1097, 439)
@@ -621,19 +622,19 @@ offset_bottom = 23.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Hert" type="TextureRect" parent="ui/Hearts/HBoxContainer"]
+[node name="Heart" type="TextureRect" parent="ui/Hearts/HBoxContainer"]
 texture_filter = 1
 layout_mode = 2
 texture = ExtResource("10_8skjo")
 expand_mode = 2
 
-[node name="Hert2" type="TextureRect" parent="ui/Hearts/HBoxContainer"]
+[node name="Heart2" type="TextureRect" parent="ui/Hearts/HBoxContainer"]
 texture_filter = 1
 layout_mode = 2
 texture = ExtResource("10_8skjo")
 expand_mode = 2
 
-[node name="Hert3" type="TextureRect" parent="ui/Hearts/HBoxContainer"]
+[node name="Heart3" type="TextureRect" parent="ui/Hearts/HBoxContainer"]
 texture_filter = 1
 layout_mode = 2
 texture = ExtResource("10_8skjo")

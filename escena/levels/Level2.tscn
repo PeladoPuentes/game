@@ -1,12 +1,13 @@
-[gd_scene load_steps=10 format=3 uid="uid://do24gut18v5iq"]
+[gd_scene load_steps=13 format=3 uid="uid://do24gut18v5iq"]
 
 [ext_resource type="Script" path="res://assets/game_elements/Game_manager.gd" id="1_hl6jk"]
-[ext_resource type="Texture2D" uid="uid://ru8y5m2wati5" path="res://escena/levels/Yellow.png" id="2_52hgy"]
-[ext_resource type="Texture2D" uid="uid://c1sog416mt0rt" path="res://assets/terrain/Terrain (16x16).png" id="3_j6uh0"]
+[ext_resource type="Texture2D" uid="uid://ru8y5m2wati5" path="res://escena/Yellow.png" id="2_52hgy"]
+[ext_resource type="Texture2D" uid="uid://c1sog416mt0rt" path="res://Terrain (16x16).png" id="3_j6uh0"]
 [ext_resource type="PackedScene" uid="uid://7jeppj8u1kkq" path="res://escena/main_caracter.tscn" id="4_hjy3u"]
 [ext_resource type="PackedScene" uid="uid://bwptm8vccl162" path="res://escena/collectible.tscn" id="5_pk8je"]
 [ext_resource type="PackedScene" uid="uid://cpcp51qmipgj6" path="res://escena/checkpoint.tscn" id="6_jqbc1"]
 [ext_resource type="PackedScene" uid="uid://b55h8b6n2lwmh" path="res://escena/menu/Main_menu2.tscn" id="6_q0ojy"]
+[ext_resource type="Script" path="res://escena/levels/Pause.gd" id="7_quwng"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_a2adh"]
 texture = ExtResource("3_j6uh0")
@@ -476,6 +477,28 @@ texture = ExtResource("3_j6uh0")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_a2adh")
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y8rlu"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f03nc"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
 [node name="Node" type="Node"]
 
 [node name="GameManager" type="Node" parent="."]
@@ -534,6 +557,62 @@ text = "Puntos 0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Pause" type="Node2D" parent="ui"]
+position = Vector2(1, 2)
+script = ExtResource("7_quwng")
+
+[node name="Pause panel" type="Panel" parent="ui/Pause"]
+unique_name_in_owner = true
+visible = false
+offset_right = 1152.0
+offset_bottom = 670.0
+
+[node name="Label" type="Label" parent="ui/Pause/Pause panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -149.0
+offset_top = -78.0
+offset_right = 150.0
+offset_bottom = -11.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 45
+text = "Game Paused"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ui/Pause/Pause panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -161.0
+offset_top = -20.0
+offset_right = 173.0
+offset_bottom = 107.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="Resume" type="Button" parent="ui/Pause/Pause panel/VBoxContainer"]
+process_mode = 3
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_y8rlu")
+text = "Resume"
+
+[node name="Menu" type="Button" parent="ui/Pause/Pause panel/VBoxContainer"]
+process_mode = 3
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_f03nc")
+text = "Back to the menu"
+
 [node name="collectibles" type="Node" parent="."]
 
 [node name="Collectible" parent="collectibles" instance=ExtResource("5_pk8je")]
@@ -562,3 +641,6 @@ position = Vector2(1832, 442)
 
 [node name="Collectible9" parent="collectibles" instance=ExtResource("5_pk8je")]
 position = Vector2(1631, 617)
+
+[connection signal="pressed" from="ui/Pause/Pause panel/VBoxContainer/Resume" to="ui/Pause" method="_on_resume_pressed"]
+[connection signal="pressed" from="ui/Pause/Pause panel/VBoxContainer/Menu" to="ui/Pause" method="_on_menu_pressed"]
